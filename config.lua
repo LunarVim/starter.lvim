@@ -1,11 +1,8 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lsp.diagnostics.virtual_text = true
-
--- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -24,17 +21,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
--- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
-
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "google_java_format", filetypes = { "java" } },
@@ -43,7 +30,10 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   "mfussenegger/nvim-jdtls",
+  "rcarriga/nvim-dap-ui"
 }
+
+require("user.dap-ui")
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
