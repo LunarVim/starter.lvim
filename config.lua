@@ -46,13 +46,13 @@ require("lvim.lsp.manager").setup("clangd", {
 -- install codelldb with :MasonInstall codelldb
 -- configure nvim-dap (codelldb)
 lvim.builtin.dap.on_config_done = function(dap)
-  local codelldb_cmd = vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/adapter/codelldb"
 
   dap.adapters.codelldb = {
     type = 'server',
     port = "${port}",
     executable = {
-      command = codelldb_cmd,
+      -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
+      command = "codelldb",
       args = { "--port", "${port}" },
 
       -- On windows you may have to uncomment this:
