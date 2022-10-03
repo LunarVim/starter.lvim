@@ -1,9 +1,16 @@
-# starter.lvim
+# starter.lvim (C/C++ IDE)
 
-A great starting point for your LunarVim journey!
+## Gallery
 
-## Submission Guidelines
+[image-1](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/c-ide/image-1.png)
+[image-2](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/c-ide/image-2.png)
+[image-3](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/c-ide/image-3.png)
 
-- Ideally one file!
-- IDE config must be added to its own branch named `lang-ide`
-- try to keep it focused on the language and not your biased keybindings/options
+## Requirements
+
+- [clangd](https://clangd.llvm.org) for LSP.
+- [codelldb](https://github.com/vadimcn/vscode-lldb) for debugging.
+- [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting.
+- [cpplint](https://github.com/cpplint/cpplint) for linting.
+
+Install with mason `:MasonInstall clangd codelldb clang-format cpplint`.
