@@ -2,6 +2,14 @@
 
 A great starting point for your LunarVim journey!
 
+## Requirements
+
+- [gopls](https://github.com/golang/tools/tree/master/gopls)
+- [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)
+- [delve](https://github.com/go-delve/delve)
+
+install with mason `:MasonInstall gopls goimports delve`
+
 ## Submission Guidelines
 
 - Ideally one file!
