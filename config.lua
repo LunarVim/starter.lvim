@@ -39,12 +39,6 @@ linters.setup {
 lvim.plugins = {
   -- You can run blocks of code like jupyter notebook.
   "dccsillag/magma-nvim",
-  -- You can view all the variables, functions, classes, etc.
-  "simrat39/symbols-outline.nvim",
-  -- Allows you to debug with a better ui.
-  "rcarriga/nvim-dap-ui",
 }
 
 require "user.magma"
-require "user.symbols-outline"
-require "user.dap-ui"
