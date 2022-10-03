@@ -7,7 +7,7 @@ local M = {
 
 function M.start()
   if not M.go_ide.rayx_gonvim then
-    M.setup_gopls()
+    M.setup_simple()
     return
   end
 
@@ -55,14 +55,22 @@ function M.setup_format_on_save_autocmd()
   })
 end
 
-function M.setup_gopls()
+function M.setup_simple()
+  lvim.plugins = vim.tbl_extend("force", lvim.plugins, {
+    "leoluz/nvim-dap-go",
+  })
+
+  -- Add goimports formatter
   local formatters = require("lvim.lsp.null-ls.formatters")
   formatters.setup({
     { command = "goimports", filetypes = { "go" } },
+    { command = "gofumpt", filetypes = { "go" } },
   })
 
   local lsp_manager = require("lvim.lsp.manager")
   lsp_manager.setup("gopls")
+
+  require("user.dapgo")
 end
 
 return M
