@@ -33,14 +33,17 @@ local clangd_flags = {
   "--pch-storage=disk",
   "--folding-ranges",
   "--enable-config",
+  "--offset-encoding=utf-16",
 }
 
+local capabilities = require("lvim.lsp").common_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
 
 require("lvim.lsp.manager").setup("clangd", {
   cmd = { "clangd", unpack(clangd_flags) },
   on_attach = require("lvim.lsp").common_on_attach,
   on_init = require("lvim.lsp").common_on_init,
-  capabilities = require("lvim.lsp").common_capabilities()
+  capabilities = capabilities
 })
 
 -- install codelldb with :MasonInstall codelldb
