@@ -1,6 +1,13 @@
-# starter.lvim
+# starter.lvim (C/C++ IDE)
 
 A great starting point for your LunarVim journey!
+
+## Requirements
+
+- [clangd](https://clangd.llvm.org)
+- [codelldb](https://github.com/vadimcn/vscode-lldb)
+
+install with mason `:MasonInstall clangd codelldb`
 
 ## Submission Guidelines
 
