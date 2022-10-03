@@ -1,12 +1,7 @@
-local M = {
-  go_ide = {
-    rayx_gonvim = true,
-    rayx_gonvim_format_on_save = true
-  },
-}
+local M = {}
 
 function M.start()
-  if not M.go_ide.rayx_gonvim then
+  if not GOIDE_CONFIG.rayx_gonvim then
     M.setup_simple()
     return
   end
@@ -23,7 +18,7 @@ function M.start()
 
   M.setup_govim(rayx_go_nvim)
 
-  if M.go_ide.rayx_gonvim_format_on_save then
+  if GOIDE_CONFIG.rayx_gonvim_format_on_save then
     M.setup_format_on_save_autocmd()
   end
 

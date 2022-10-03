@@ -39,5 +39,9 @@ lvim.plugins = {
 
 
 -- ================================= Go IDE Specific Section ========================================
+GOIDE_CONFIG = {
+  rayx_gonvim = true,
+  rayx_gonvim_format_on_save = true
+}
 local goide = require("user.goide")
 goide.start()
