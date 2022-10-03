@@ -17,8 +17,6 @@ lvim.builtin.dap.active = true
 -- auto install treesitter parsers
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
-
 -- setup clangd
 
 -- customize clangd by changing the flags below
@@ -58,6 +56,15 @@ linters.setup {
 lvim.builtin.dap.on_config_done = function(dap)
   dap.adapters.codelldb = {
     type = "server",
+  capabilities = require("lvim.lsp").common_capabilities()
+})
+
+-- install codelldb with :MasonInstall codelldb
+-- configure nvim-dap (codelldb)
+lvim.builtin.dap.on_config_done = function(dap)
+
+  dap.adapters.codelldb = {
+    type = 'server',
     port = "${port}",
     executable = {
       -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
@@ -91,6 +98,6 @@ lvim.plugins = {
     "theHamsta/nvim-dap-virtual-text",
     config = function()
       require("nvim-dap-virtual-text").setup()
-    end,
-  },
+    end
+  }
 }
