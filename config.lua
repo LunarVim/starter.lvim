@@ -1,10 +1,8 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
 lvim.leader = "space"
+lvim.lsp.diagnostics.virtual_text = true
 
--- After changing plugin config exit and reopen LunarVim, run :PackerSync
--- :PackerCompile.
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
@@ -12,7 +10,8 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.breadcrumbs.active = true
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
+-- enable dap
 lvim.builtin.dap.active = true
 
 -- All the treesitter parsers you want to install. If you want all of them, just
@@ -21,7 +20,16 @@ lvim.builtin.treesitter.ensure_installed = {
   "python",
 }
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pylsp" })
+-- Setup lsp.
+
+local pylsp_flags = {}
+
+require("lvim.lsp.manager").setup("pylsp", {
+  cmd = { "pyslp", unpack(pylsp_flags) },
+  on_attach = require("lvim.lsp").common_on_attach,
+  on_init = require("lvim.lsp").common_on_init,
+  capabilities = require("lvim.lsp").common_capabilities(),
+})
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -39,6 +47,7 @@ linters.setup {
 lvim.plugins = {
   -- You can run blocks of code like jupyter notebook.
   "dccsillag/magma-nvim",
+  config = function()
+    require("user.magma").setup()
+  end,
 }
-
-require "user.magma"
