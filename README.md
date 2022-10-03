@@ -8,7 +8,7 @@ A great starting point for your LunarVim journey!
 - [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)
 - [delve](https://github.com/go-delve/delve)
 
-install with mason `:MasonInstall gopls goimports delve`
+Install with mason `:MasonInstall gopls goimports delve`
 
 ## Submission Guidelines
 
