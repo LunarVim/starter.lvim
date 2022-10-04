@@ -29,13 +29,9 @@ lvim.builtin.treesitter.highlight.enable = true
 -- ======================================= Dap Section ==============================================
 lvim.builtin.dap.active = true
 
-require("user.dapui")
-
 
 -- ===================================== Plugins Section ============================================
-lvim.plugins = {
-  "rcarriga/nvim-dap-ui",
-}
+lvim.plugins = {}
 
 
 -- ================================= Go IDE Specific Section ========================================
