@@ -285,3 +285,28 @@ lvim.plugins = {
     end,
   },
 }
+
+------------------------------------------------------------------------
+-- custom which-key mappings
+------------------------------------------------------------------------
+lvim.builtin.which_key.vmappings["r"] = {
+  name = "+refactor",
+  r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "refactor selection" },
+}
+
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["r"] = {
+  name = "+Search and Replace",
+  o = { "<cmd>lua require('spectre').open()<cr>", "open" },
+  f = { "<cmd>lua require('spectre').open_file_search()<cr>", "file search" },
+  c = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "search word under cursor" },
+}
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  r = { "<cmd>Trouble lsp_references<cr>", "LSP References" },
+  t = { "<cmd>Trouble lsp_type_references<cr>", "LSP Type References" },
+}
