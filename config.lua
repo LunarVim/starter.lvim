@@ -43,6 +43,16 @@ linters.setup {
   { command = "flake8", filetypes = { "python" } },
 }
 
+
+-- Setup dap for python
+local dap = require("dap")
+
+dap.adapters.python = {
+  type = "executable",
+  command = "/usr/bin/python3.10",
+  args = { "-m", "debugpy.adapter" },
+}
+
 -- Additional Plugins
 lvim.plugins = {
   -- You can run blocks of code like jupyter notebook.
