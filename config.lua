@@ -197,6 +197,7 @@ linters.setup {
 local codeactions = require "lvim.lsp.null-ls.code_actions"
 codeactions.setup {
   { name = "gitsigns" },
+  { name = "refactoring" },
   { command = "eslint_d", filetype = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
 }
 
@@ -241,6 +242,30 @@ lvim.plugins = {
     "windwp/nvim-ts-autotag",
     config = function()
       require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  {
+    -- required for refactoring codeactions (caveat: only works with few common languages)
+    -- view supported languages at https://github.com/ThePrimeagen/refactoring.nvim#supported-languages
+    "ThePrimeagen/refactoring.nvim",
+    config = function()
+      require("refactoring").setup {
+        -- prompt for return type
+        prompt_func_return_type = {
+          go = true,
+          cpp = true,
+          c = true,
+          java = true,
+        },
+        -- prompt for function parameters
+        prompt_func_param_type = {
+          go = true,
+          cpp = true,
+          c = true,
+          java = true,
+        },
+      }
     end,
   },
 }
