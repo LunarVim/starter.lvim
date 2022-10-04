@@ -1,9 +1,5 @@
 # starter.lvim
 
-A great starting point for your LunarVim journey!
+A great starting point for your LunarVim Rust journey!
 
-## Submission Guidelines
-
-- Ideally one file!
-- IDE config must be added to its own branch named `lang-ide`
-- try to keep it focused on the language and not your biased keybindings/options
+![screenshot](https://user-images.githubusercontent.com/15178513/193708078-ba8ca1d2-8e30-405d-8b54-e4c2717071a0.png)
