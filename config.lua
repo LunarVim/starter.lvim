@@ -122,6 +122,9 @@ lsp_manager.setup("rust_analyzer", {
 
 -- gopls
 lsp_manager.setup("gopls", {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
   settings = {
     gopls = {
       gofumpt = true,
