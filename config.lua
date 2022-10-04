@@ -268,4 +268,20 @@ lvim.plugins = {
       }
     end,
   },
+
+  {
+    -- search and replace
+    "windwp/nvim-spectre",
+    config = function()
+      require("spectre").setup {}
+    end,
+  },
+
+  {
+    -- diagnostics with trouble.nvim
+    "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup {}
+    end,
+  },
 }
