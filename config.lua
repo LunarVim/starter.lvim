@@ -1,35 +1,11 @@
-lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.leader = "space"
-lvim.lsp.diagnostics.virtual_text = true
-
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.breadcrumbs.active = true
-lvim.builtin.treesitter.highlight.enable = true
--- enable dap
-lvim.builtin.dap.active = true
+lvim.lsp.diagnostics.virtual_text = false
 
 -- All the treesitter parsers you want to install. If you want all of them, just
 -- replace everything with "all".
 lvim.builtin.treesitter.ensure_installed = {
   "python",
 }
-
--- Setup lsp.
-
-local pylsp_flags = {}
-
-require("lvim.lsp.manager").setup("pylsp", {
-  cmd = { "pyslp", unpack(pylsp_flags) },
-  on_attach = require("lvim.lsp").common_on_attach,
-  on_init = require("lvim.lsp").common_on_init,
-  capabilities = require("lvim.lsp").common_capabilities(),
-})
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -43,46 +19,99 @@ linters.setup {
   { command = "flake8", filetypes = { "python" } },
 }
 
+-- TODO: debugpy installed by default
 -- Setup dap for python
-lvim.builtin.dap.on_config_done = function(dap)
-  dap.adapters.python = {
-    type = "executable",
-    command = "/usr/bin/python",
-    args = { "-m", "debugpy.adapter" },
-  }
+lvim.builtin.dap.active = true
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 
-  dap.configurations.python = {
-    {
-      -- The first three options are required by nvim-dap
-      type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
-      request = "launch",
-      name = "Launch file",
+-- Supported test frameworks are unittest, pytest and django. By default it
+-- tries to detect the runner by probing for pytest.ini and manage.py, if
+-- neither are present it defaults to unittest.
+require("dap-python").test_runner = "pytest"
 
-      -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+-- Mappings
+lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('dap-python').test_method()<cr>", "Test Method" }
+lvim.builtin.which_key.mappings["df"] = { "<cmd>lua require('dap-python').test_class()<cr>", "Test Class" }
+lvim.builtin.which_key.vmappings["d"] = {
+  name = "Debug",
+  s = { "<cmd>lua require('dap-python').debug_selection()<cr>", "Debug Selection" },
+}
 
-      program = "${file}", -- This configuration will launch the current file if used.
-      pythonPath = function()
-        -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-        -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-        -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-        local cwd = vim.fn.getcwd()
-        if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-          return cwd .. "/venv/bin/python"
-        elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-          return cwd .. "/.venv/bin/python"
-        else
-          return "/usr/bin/python"
-        end
-      end,
-    },
-  }
-end
+lvim.builtin.which_key.mappings["j"] = {
+  name = "Jupyter",
+  i = { "<Cmd>MagmaInit<CR>", "Init Magma" },
+  d = { "<Cmd>MagmaDeinit<CR>", "Deinit Magma" },
+  e = { "<Cmd>MagmaEvaluateLine<CR>", "Evaluate Line" },
+  r = { "<Cmd>MagmaReevaluateCell<CR>", "Re evaluate cell" },
+  D = { "<Cmd>MagmaDelete<CR>", "Delete cell" },
+  s = { "<Cmd>MagmaShowOutput<CR>", "Show Output" },
+  R = { "<Cmd>MagmaRestart!<CR>", "Restart Magma" },
+  S = { "<Cmd>MagmaSave<CR>", "Save" },
+}
+
+lvim.builtin.which_key.vmappings["j"] = {
+  name = "Jupyter",
+  e = { "<esc><cmd>MagmaEvaluateVisual<cr>", "Evaluate Highlighted Line" },
+}
+
+lvim.builtin.which_key.mappings["P"] = {
+  name = "Python",
+  i = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Pick Env" },
+  d = { "<cmd>lua require('swenv.api').get_current_venv()<cr>", "Show Env" },
+}
 
 -- Additional Plugins
 lvim.plugins = {
   -- You can run blocks of code like jupyter notebook.
-  "dccsillag/magma-nvim",
-  config = function()
-    require("user.magma").setup()
-  end,
+  "AckslD/swenv.nvim",
+  "danymat/neogen",
+  {
+    "mfussenegger/nvim-dap-python",
+    config = function()
+      require("neogen").setup {
+        enabled = true,
+        languages = {
+          python = {
+            template = {
+              annotation_convention = "numpydoc",
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
+    "dccsillag/magma-nvim",
+    run = ":UpdateRemotePlugins",
+    config = function()
+      -- An alternative is to use project specific .vscode/launch.json files, see
+      -- :help dap-launch.json.
+
+      -- Image options. Other options:
+      -- 1. none:     Don't show images.
+      -- 2. ueberzug: use Ueberzug to display images.
+      -- 3. kitty:    use the Kitty protocol to display images.
+      vim.g.magma_image_provider = "kitty"
+
+      -- If this is set to true, then whenever you have an active cell its output
+      -- window will be automatically shown.
+      vim.g.magma_automatically_open_output = true
+
+      -- If this is true, then text output in the output window will be wrapped.
+      vim.g.magma_wrap_output = false
+
+      -- If this is true, then the output window will have rounded borders.
+      vim.g.magma_output_window_borders = false
+
+      -- The highlight group to be used for highlighting cells.
+      vim.g.magma_cell_highlight_group = "CursorLine"
+
+      -- Where to save/load with :MagmaSave and :MagmaLoad.
+      -- The generated file is placed in this directory, with the filename itself
+      -- being the buffer's name, with % replaced by %% and / replaced by %, and
+      -- postfixed with the extension .json.
+      vim.g.magma_save_path = vim.fn.stdpath "data" .. "/magma"
+    end,
+  },
 }
