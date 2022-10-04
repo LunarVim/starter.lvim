@@ -94,7 +94,7 @@ local clangd_flags = {
   "--clang-tidy",
 }
 
-local clangd_capabilities = capabilities
+local clangd_capabilities = vim.deepcopy(capabilities)
 clangd_capabilities.offsetEncoding = { "utf-16" }
 
 -- clangd
