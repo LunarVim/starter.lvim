@@ -1,11 +1,27 @@
-# starter.lvim (basic IDE)
+# starter.lvim
 
 A great starting point for your LunarVim journey!
+
+<details open>
+  <summary>
+    <strong>Contents</strong>
+  </summary>
+
+- [Submission Guidelines](#submission-guidelines)
+- [Supported languages](#supported-languages)
+- [Requirements](#requirements)
+- [Keybinds](#additional-keybinds)
+</details>
+
+## Submission Guidelines
+
+See [guidelines](guidelines.md)
 
 ## Supported languages
 
 > **Note**
-> formatting, diagnostics, completions should work out of the box for the languages below.
+> formatting, diagnostics, completions should work out of the box for the languages
+> below with the `LunarVim` configuration in this branch
 
 - C/C++
 - Typescript/Javascript
@@ -22,8 +38,8 @@ A great starting point for your LunarVim journey!
 
 ## Requirements
 
-Most of the language servers will be installed automatically, but there is a few
-that are manually configured and requires manual installation.
+Most of the language servers installation should happen automatically, but there
+is a few that are manually configured and may requires manual installation.
 
 Install them with the command below
 
@@ -31,7 +47,7 @@ Install them with the command below
 :MasonInstall clangd rust_analyzer gopls
 ```
 
-Binaries required for diagnostics and formatting will not be automatically installed.
+Binaries needed for diagnostics and formatting requires manual installation.
 You need to install them using the builtin `mason.nvim` or with your favorite package
 manager.
 
