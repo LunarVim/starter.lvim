@@ -214,4 +214,33 @@ lvim.plugins = {
       require("catppuccin").setup()
     end,
   },
+
+  -- utility plugins
+  { "tpope/vim-surround", keys = { "c", "d", "y" } },
+
+  {
+    -- better UX with vim.ui.select and vim.ui.input
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup {
+        input = {
+          prefer_width = 55,
+          prompt_align = "center",
+          min_width = 30,
+          relative = "editor",
+        },
+        select = {
+          backend = { "telescope" },
+          telescope = require("telescope.themes").get_dropdown { hide_preview = false },
+        },
+      }
+    end,
+  },
+  {
+    -- auto close html tags
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
 }
