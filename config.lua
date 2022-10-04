@@ -307,7 +307,6 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
   d = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   r = { "<cmd>Trouble lsp_references<cr>", "LSP References" },
-  t = { "<cmd>Trouble lsp_type_references<cr>", "LSP Type References" },
+  t = { "<cmd>Trouble lsp_type_definitions<cr>", "LSP Type definitions" },
 }
