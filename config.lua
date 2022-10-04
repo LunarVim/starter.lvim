@@ -146,6 +146,52 @@ lsp_manager.setup("gopls", {
   },
 })
 
+------------------------------------------------------------------------
+-- formatters
+------------------------------------------------------------------------
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  {
+    command = "prettier",
+    filetypes = {
+      "json",
+      "jsonc",
+      "yaml",
+      "markdown",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "css",
+      "scss",
+      "html",
+    },
+  },
+  { command = "stylua", filetypes = { "lua" } },
+  { command = "goimports", filetypes = { "go", "gomod" } },
+  { command = "shfmt", filetypes = { "sh" } },
+  { command = "rustfmt", filetypes = { "rust" } },
+  { command = "black", filetypes = { "python" } },
+}
+
+------------------------------------------------------------------------
+-- linters
+------------------------------------------------------------------------
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "flake8", filetypes = { "python" } },
+  { command = "golangci_lint", filetypes = { "go" } },
+  { command = "hadolint", filetypes = { "dockerfile" } },
+  { command = "shellcheck", filetypes = { "sh" } },
+  {
+    command = "luacheck",
+    filetypes = { "lua" },
+    args = { "--globals", "vim", "--formatter", "plain", "--codes", "--ranges", "--filename", "$FILENAME", "-" },
+  },
+
+  { command = "yamllint", filetypes = { "yaml" } },
+  { command = "eslint_d", filetyps = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
+}
 
 
 
