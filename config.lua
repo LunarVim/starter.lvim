@@ -6,6 +6,12 @@ lvim.leader = "space"
 -- lvim.use_icons = false
 
 ------------------------------------------------------------------------
+-- colorscheme
+-- choose from "tokyonight", "catppuccin", "kanagawa"
+------------------------------------------------------------------------
+lvim.colorscheme = "tokyonight"
+
+------------------------------------------------------------------------
 -- builtin plugins configs
 
 -- After changing plugin config exit and reopen LunarVim -
@@ -61,4 +67,22 @@ lvim.lsp.installer.setup.ensure_installed = {
   "dockerls",
   "bashls",
   "taplo",
+}
+
+
+
+------------------------------------------------------------------------
+-- Plugins
+------------------------------------------------------------------------
+lvim.plugins = {
+
+  -- addtional colorschemes
+  { "rebelot/kanagawa.nvim" },
+  {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      require("catppuccin").setup()
+    end,
+  },
 }
