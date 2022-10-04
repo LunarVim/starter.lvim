@@ -26,7 +26,6 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.breadcrumbs.active = true
 
-
 ------------------------------------------------------------------------
 -- auto install treesitter parsers
 ------------------------------------------------------------------------
@@ -49,7 +48,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "dockerfile",
   "rust",
 }
-
 
 ------------------------------------------------------------------------
 -- LSP settings
@@ -193,7 +191,14 @@ linters.setup {
   { command = "eslint_d", filetyps = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
 }
 
-
+------------------------------------------------------------------------
+-- codeactions
+------------------------------------------------------------------------
+local codeactions = require "lvim.lsp.null-ls.code_actions"
+codeactions.setup {
+  { name = "gitsigns" },
+  { command = "eslint_d", filetype = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
+}
 
 ------------------------------------------------------------------------
 -- Plugins
