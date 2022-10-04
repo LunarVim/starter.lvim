@@ -48,6 +48,8 @@ lvim.builtin.treesitter.ensure_installed = {
 ------------------------------------------------------------------------
 -- LSP settings
 ------------------------------------------------------------------------
+lvim.lsp.diagnostics.virtual_text = false
+
 -- language server in the table below will automatically be installed
 lvim.lsp.installer.setup.ensure_installed = {
   "sumeko_lua",
