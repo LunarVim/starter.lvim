@@ -23,8 +23,7 @@ lvim.builtin.treesitter.highlight.enable = true
 
 
 -- ======================================= LSP Section ==============================================
--- Will override the LSP formatting capabilities if any exist
-
+-- Any other LSP configuration you want to add here
 
 -- ======================================= Dap Section ==============================================
 lvim.builtin.dap.active = true
