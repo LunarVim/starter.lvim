@@ -35,3 +35,6 @@ smoothly:
 2. `Pylsp` or `Pyright` for LSP.
 3. `Black` for formatting.
 4. `Flake8` for linting.
+
+You can install everything with the following command: `pip3 install -r
+requirements.txt`.
