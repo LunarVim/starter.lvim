@@ -37,9 +37,7 @@ lsp_manager.setup("gopls")
 
 -- Additional Plugins
 lvim.plugins = {
-  "rcarriga/nvim-dap-ui",
   "leoluz/nvim-dap-go",
 }
 
 require("user.dap-go")
-require("user.dap-ui")
