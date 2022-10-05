@@ -2,9 +2,9 @@
 
 ## Gallery
 
-[image-1](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-1.png)
-[image-2](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-2.png)
-[image-3](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-3.png)
+![image-1](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-1.png)
+![image-2](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-2.png)
+![image-3](https://raw.githubusercontent.com/LunarVim/starter.lvim/media/python-ide/image-3.png)
 
 ## Overview
 
