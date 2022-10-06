@@ -1,6 +1,5 @@
 -- ===================================== General Section ============================================
 lvim.log.level = "warn"
-lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -17,13 +16,8 @@ lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.ensure_installed = {
   "go",
 }
-
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
-
--- ======================================= LSP Section ==============================================
--- Any other LSP configuration you want to add here
 
 -- ======================================= Dap Section ==============================================
 lvim.builtin.dap.active = true
@@ -35,8 +29,14 @@ lvim.plugins = {}
 
 -- ================================= Go IDE Specific Section ========================================
 GOIDE_CONFIG = {
-  rayx_gonvim = true,
-  rayx_gonvim_format_on_save = true
+  use_simple = true,
+  format_on_save = false
 }
-local goide = require("user.goide")
+
+lvim.format_on_save = false
+local goide = require("user.goide_simple")
+if not GOIDE_CONFIG.use_simple then
+  goide = require("user.goide_complex")
+end
+
 goide.start()

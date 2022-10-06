@@ -1,9 +1,8 @@
 local M = {}
 
 function M.start()
-  if not GOIDE_CONFIG.rayx_gonvim then
-    M.setup_simple()
-    return
+  if GOIDE_CONFIG.format_on_save then
+    M.setup_format_on_save_autocmd()
   end
 
   lvim.plugins = vim.tbl_extend("force", lvim.plugins, {
@@ -16,15 +15,6 @@ function M.start()
     return
   end
 
-  M.setup_govim(rayx_go_nvim)
-
-  if GOIDE_CONFIG.rayx_gonvim_format_on_save then
-    M.setup_format_on_save_autocmd()
-  end
-
-end
-
-function M.setup_govim(rayx_go_nvim)
   local lvim_lsp = require("lvim.lsp")
   local capabilities = lvim_lsp.common_capabilities()
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -38,34 +28,31 @@ function M.setup_govim(rayx_go_nvim)
     dap_debug = true, -- set to false to disable dap
     dap_debug_gui = true, -- set to true to enable dap gui, highly recommend
   })
+
+  -- Key Maps
+  lvim.builtin.which_key.vmappings["L"] = {
+    name = "Debug",
+    b = { "<cmd>GoBreakToggle<cr>", "Breakpoint" },
+    s = { "<cmd>GoDebug<cr>", "Start" },
+    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+    O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+    r = { "<cmd>ReplToggle<cr>", "Repl" },
+    l = { "<cmd>ReplRun<cr>", "Last" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+  }
 end
 
 function M.setup_format_on_save_autocmd()
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.go" },
     callback = function()
-      vim.cmd([[silent! lua require('go.format').gofmt()]]) -- gofmt (gofu) only
+      vim.cmd([[silent! lua require('go.format').gofmt()]]) -- gofmt (gofumpt) only
       -- vim.cmd([[silent! lua require('go.format').goimport()]]) -- goimport + gofmt
     end,
   })
-end
-
-function M.setup_simple()
-  lvim.plugins = vim.tbl_extend("force", lvim.plugins, {
-    "leoluz/nvim-dap-go",
-  })
-
-  -- Add goimports formatter
-  local formatters = require("lvim.lsp.null-ls.formatters")
-  formatters.setup({
-    { command = "goimports", filetypes = { "go" } },
-    { command = "gofumpt", filetypes = { "go" } },
-  })
-
-  local lsp_manager = require("lvim.lsp.manager")
-  lsp_manager.setup("gopls")
-
-  require("user.dapgo")
 end
 
 return M
