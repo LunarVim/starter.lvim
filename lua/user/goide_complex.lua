@@ -41,6 +41,7 @@ function M.start()
     r = { "<cmd>ReplToggle<cr>", "Repl" },
     l = { "<cmd>ReplRun<cr>", "Last" },
     u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    t = { "<cmd>GoDebug test<cr>", "Debug Test" },
     x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
   }
 end

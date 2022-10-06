@@ -55,6 +55,7 @@ function M.start()
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
     l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
     u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+    t = { "<cmd>lua require'dap-go'.debug_test()<cr>", "Debug Test" },
     x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
   }
 end
