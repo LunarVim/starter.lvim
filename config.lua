@@ -135,7 +135,6 @@ formatters.setup {
   { command = "stylua", filetypes = { "lua" } },
   { command = "goimports", filetypes = { "go", "gomod" } },
   { command = "shfmt", filetypes = { "sh" } },
-  { command = "rustfmt", filetypes = { "rust" } },
   { command = "black", filetypes = { "python" } },
 }
 
