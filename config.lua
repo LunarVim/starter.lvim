@@ -58,7 +58,7 @@ lvim.builtin.dap.on_config_done = function(dap)
         return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
       end,
       cwd = "${workspaceFolder}",
-      stopOnEntry = true,
+      stopOnEntry = false,
     },
   }
 
