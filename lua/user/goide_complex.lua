@@ -30,7 +30,7 @@ function M.start()
   })
 
   -- Key Maps
-  lvim.builtin.which_key.vmappings["L"] = {
+  lvim.builtin.which_key.mappings["L"] = {
     name = "Debug",
     b = { "<cmd>GoBreakToggle<cr>", "Breakpoint" },
     s = { "<cmd>GoDebug<cr>", "Start" },

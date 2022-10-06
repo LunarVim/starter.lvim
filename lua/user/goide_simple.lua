@@ -45,7 +45,7 @@ function M.start()
 
 
   -- Key Maps
-  lvim.builtin.which_key.vmappings["L"] = {
+  lvim.builtin.which_key.mappings["L"] = {
     name = "Debug",
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
     c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
