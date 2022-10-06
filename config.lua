@@ -64,13 +64,3 @@ lvim.builtin.dap.on_config_done = function(dap)
 
   dap.configurations.c = dap.configurations.cpp
 end
-
-lvim.plugins = {
-  -- nvim-dap-virtual-text can be replaced with rcarriga/nvim-dap-ui
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-}
