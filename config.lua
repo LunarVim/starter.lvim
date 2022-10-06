@@ -1,24 +1,12 @@
-lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.leader = "space"
 lvim.lsp.diagnostics.virtual_text = true
 
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enable = true
--- enable dap
-lvim.builtin.dap.active = true
 
 -- auto install treesitter parsers
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
-
 -- setup clangd
 
 -- customize clangd by changing the flags below
