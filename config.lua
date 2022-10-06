@@ -55,19 +55,6 @@ lvim.builtin.treesitter.ensure_installed = {
 ------------------------------------------------------------------------
 lvim.lsp.diagnostics.virtual_text = false
 
--- language server in the table below will automatically be installed
-lvim.lsp.installer.setup.ensure_installed = {
-  "sumeko_lua",
-  "jsonls",
-  "pyright",
-  "tsserver",
-  "html",
-  "yamlls",
-  "dockerls",
-  "bashls",
-  "taplo",
-}
-
 -- language servers added to the skipped_servers table will not be -
 -- automatically configured by LunarVim
 
