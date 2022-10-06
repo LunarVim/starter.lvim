@@ -176,6 +176,15 @@ lvim.plugins = {
   -- utility plugins
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
 
+  -- search and replace
+  "windwp/nvim-spectre",
+
+  -- diagnostics with trouble.nvim
+  "folke/trouble.nvim",
+
+  -- auto close html tags
+  "windwp/nvim-ts-autotag",
+
   {
     -- better UX with vim.ui.select and vim.ui.input
     "stevearc/dressing.nvim",
@@ -192,13 +201,6 @@ lvim.plugins = {
           telescope = require("telescope.themes").get_dropdown { hide_preview = false },
         },
       }
-    end,
-  },
-  {
-    -- auto close html tags
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
     end,
   },
 
@@ -223,22 +225,6 @@ lvim.plugins = {
           java = true,
         },
       }
-    end,
-  },
-
-  {
-    -- search and replace
-    "windwp/nvim-spectre",
-    config = function()
-      require("spectre").setup {}
-    end,
-  },
-
-  {
-    -- diagnostics with trouble.nvim
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup {}
     end,
   },
 }
