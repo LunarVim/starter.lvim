@@ -1,9 +1,4 @@
 lvim.format_on_save = true
-------------------------------------------------------------------------
--- colorscheme
--- choose from "tokyonight", "catppuccin", "kanagawa"
-lvim.colorscheme = "tokyonight"
-------------------------------------------------------------------------
 
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -177,16 +172,6 @@ codeactions.setup {
 -- Plugins
 ------------------------------------------------------------------------
 lvim.plugins = {
-
-  -- addtional colorschemes
-  { "rebelot/kanagawa.nvim" },
-  {
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function()
-      require("catppuccin").setup()
-    end,
-  },
 
   -- utility plugins
   { "tpope/vim-surround", keys = { "c", "d", "y" } },
