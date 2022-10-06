@@ -16,7 +16,8 @@ function M.start()
     { command = "gofumpt", filetypes = { "go" } },
   })
 
-  -- Server
+  -- LSP Server
+  vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "gopls" })
   local lsp_manager = require("lvim.lsp.manager")
   lsp_manager.setup("gopls", {
     on_attach = require("lvim.lsp").common_on_attach,
