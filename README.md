@@ -6,7 +6,7 @@ Scala's LSP, Metals, is not managed by Mason. Instead, you will need to follow t
 
 ## Setup
 
-Once you have done the prerequisites, so should be able to execute `:MetalsInstall` to complete setup
+Once you have done the prerequisites, you should be able to execute `:MetalsInstall` to complete setup
 
 ## Overview
 
