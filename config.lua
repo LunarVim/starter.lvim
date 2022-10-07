@@ -1,36 +1,36 @@
-----------------------
+------------------------
 -- Treesitter
-----------------------
+------------------------
 lvim.builtin.treesitter.ensure_installed = {
   "go",
   "gomod",
 }
 
-----------------------
+------------------------
 -- Plugins
-----------------------
+------------------------
 lvim.plugins = {
   "olexsmir/gopher.nvim",
   "leoluz/nvim-dap-go",
 }
 
-----------------------
--- Formating
-----------------------
+------------------------
+-- Formatting
+------------------------
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "goimports", filetypes = { "go" } },
   { command = "gofumpt", filetypes = { "go" } },
-  { command = "stylua", filetypes = { "lua" } },
 }
 
 lvim.format_on_save = {
   pattern = { "*.go" },
 }
 
-----------------------
+
+------------------------
 -- LSP
-----------------------
+------------------------
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "gopls" })
 
 local lsp_manager = require "lvim.lsp.manager"
@@ -75,9 +75,24 @@ gopher.setup {
   },
 }
 
-----------------------
+------------------------
+-- Language Key Mappings
+------------------------
+lvim.builtin.which_key.mappings["L"] = {
+  name = "Go",
+  i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
+  t = { "<cmd>GoMod tidy<cr>", "Tidy" },
+  a = { "<cmd>GoTestAdd<Cr>", "Add Test" },
+  A = { "<cmd>GoTestsAll<Cr>", "Add All Tests" },
+  e = { "<cmd>GoTestsExp<Cr>", "Add Exported Tests" },
+  g = { "<cmd>GoGenerate<Cr>", "Go Generate" },
+  f = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
+  c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
+}
+
+------------------------
 -- Dap
-----------------------
+------------------------
 local dap_ok, dapgo = pcall(require, "dap-go")
 if not dap_ok then
   return
