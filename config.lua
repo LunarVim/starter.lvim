@@ -101,6 +101,3 @@ lvim.plugins = {
   "olexsmir/gopher.nvim",
   "leoluz/nvim-dap-go",
 }
-
--- debugging configuration for go
-require("user.dap-go")
