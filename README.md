@@ -12,8 +12,8 @@ Once you have done the prerequisites, you should be able to execute `:MetalsInst
 
 Outside of providing the basic IDE functionality (treesitter, autocomplete, diagnostics etc), some helpful binding for Metals are also setup:
 
-- `<leader>mr` - Restart build server
-- `<leader>mi` - Display Metals Info
-- `<leader>mu` - Update Metals
-- `<leader>md` - Run Metals Doctor
+- `<leader>Lr` - Restart build server
+- `<leader>Li` - Display Metals Info
+- `<leader>Lu` - Update Metals
+- `<leader>Ld` - Run Metals Doctor
 
