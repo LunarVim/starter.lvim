@@ -6,4 +6,4 @@ A great starting point for your `Go` LunarVim journey!
 
 In order to get started with this IDE setup please remember to run the following command:
 
-`:MasonInstall gopls golangci-lint-langserver goimports gofumpt gomodifytags gotests impl`
+`:MasonInstall gopls golangci-lint-langserver delve goimports gofumpt gomodifytags gotests impl`
