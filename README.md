@@ -1,17 +1,9 @@
-# starter.lvim
+# GO IDE (starter.lvim)
 
-A great starting point for your LunarVim journey!
+A great starting point for your `Go` LunarVim journey!
 
-## Requirements
+# Configuration
 
-- [gopls](https://github.com/golang/tools/tree/master/gopls)
-- [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports)
-- [delve](https://github.com/go-delve/delve)
+In order to get started with this IDE setup please remember to run the following command:
 
-Install with mason `:MasonInstall gopls goimports delve`
-
-## Submission Guidelines
-
-- Ideally one file!
-- IDE config must be added to its own branch named `lang-ide`
-- try to keep it focused on the language and not your biased keybindings/options
+`:MasonInstall gopls golangci-lint-langserver delve goimports gofumpt gomodifytags gotests impl`
