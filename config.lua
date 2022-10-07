@@ -23,7 +23,7 @@ lvim.builtin.lualine.sections.lualine_c = {
 	metals_status,
 }
 
-lvim.builtin.which_key.mappings["m"] = {
+lvim.builtin.which_key.mappings["L"] = {
 	name = "Metals",
 	u = { "<Cmd>MetalsUpdate<CR>", "Update Metals" },
 	i = { "<Cmd>MetalsInfo<CR>", "Metals Info" },
