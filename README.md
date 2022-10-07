@@ -1,9 +1,9 @@
-# starter.lvim
+# GO IDE (starter.lvim)
 
-A great starting point for your LunarVim journey!
+A great starting point for your `Go` LunarVim journey!
 
-## Submission Guidelines
+# Configuration
 
-- Ideally one file!
-- IDE config must be added to its own branch named `lang-ide`
-- try to keep it focused on the language and not your biased keybindings/options
+In order to get started with this IDE setup please remember to run the following command:
+
+`:MasonInstall gopls golangci-lint-langserver goimports gofumpt gomodifytags gotests impl`
