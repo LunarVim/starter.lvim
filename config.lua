@@ -15,7 +15,7 @@ lvim.plugins = {}
 ------------------------
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "php-cs-fixer", filetypes = { "php" } },
+  { command = "phpcsfixer", filetypes = { "php" } },
 }
 
 lvim.format_on_save = {
@@ -53,7 +53,7 @@ dap.configurations.php = {
     name = "run current script",
 		type = "php",
 		request = "launch",
-		port = 9000,
+		port = 9003,
     cwd = "${fileDirname}",
     program = "${file}",
     runtimeExecutable = "php",
