@@ -124,7 +124,8 @@ lvim.builtin.which_key.mappings["L"] = {
   a = { "<cmd>ClangdAST<CR>", "View AST" },
   s = { "<cmd>ClangdSymbolInfo<CR>", "View Symbol info" },
   t = { "<cmd>ClangdTypeHierarchy<CR>", "View Type hierarchy" },
-  h = { "<cmd>ClangdToggleInlayHints<CR>", "Toggle Inlay Hints" },
+  h = { "<cmd>ClangdSwitchSourceHeader<CR>", "Switch between source/header"},
+  H = { "<cmd>ClangdToggleInlayHints<CR>", "Toggle Inlay Hints" },
 }
 
 lvim.builtin.which_key.vmappings["L"] = {
