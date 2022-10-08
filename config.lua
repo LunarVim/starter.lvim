@@ -50,7 +50,13 @@ dap.adapters.php = {
 }
 dap.configurations.php = {
   {
-    name = "run current script",
+    name = "Listen for Xdebug",
+		type = "php",
+		request = "launch",
+		port = 9003,
+  },
+  {
+    name = "Debug currently open script",
 		type = "php",
 		request = "launch",
 		port = 9003,

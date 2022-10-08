@@ -9,5 +9,6 @@ LSP Server and DAP adapter.
 In this setup we use:
 - [Intelephense](https://intelephense.com)
 - [php-debug-adapter](https://github.com/xdebug/vscode-php-debug)
+- [xdebug](https://xdebug.org/docs/install)
 
-In order for these to work please run the following command: `:MasonInstall intelephense php-debug-adapter`
+In order for these to work please run the following command: `:MasonInstall intelephense php-debug-adapter phpcs php-cs-fixer`
