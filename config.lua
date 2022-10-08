@@ -1,30 +1,45 @@
--- ===================================== General Section ============================================
-lvim.log.level = "warn"
-lvim.format_on_save = false
-lvim.colorscheme = "tokyonight"
-lvim.leader = "space"
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.breadcrumbs.active = true
-
--- =================================== Treesitter Section ===========================================
+------------------------
+-- Treesitter
+------------------------
 lvim.builtin.treesitter.ensure_installed = {
 	"php",
 }
 
-lvim.builtin.treesitter.highlight.enable = true
+------------------------
+-- Plugins
+------------------------
+lvim.plugins = {}
 
--- ======================================= LSP Section ==============================================
--- Will override the LSP formatting capabilities if any exist
+------------------------
+-- Formatting
+------------------------
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "php-cs-fixer", filetypes = { "php" } },
+}
+
+lvim.format_on_save = {
+  pattern = { "*.php" },
+}
+
+------------------------
+-- Linting
+------------------------
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "phpcs", filetypes = { "php" } },
+}
+
+------------------------
+-- LSP
+------------------------
 local lsp_manager = require("lvim.lsp.manager")
 lsp_manager.setup("intelephense")
 
--- More information on how to install the debug adapter
+
+------------------------
+-- LSP
+------------------------
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#PHP
 local dap = require("dap")
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
@@ -34,30 +49,15 @@ dap.adapters.php = {
 	args = { mason_path .. "packages/php-debug-adapter/extension/out/phpDebug.js" },
 }
 dap.configurations.php = {
-	{
+  {
+    name = "run current script",
 		type = "php",
 		request = "launch",
-		name = "Listen for Xdebug",
 		port = 9000,
-	},
+    cwd = "${fileDirname}",
+    program = "${file}",
+    runtimeExecutable = "php",
+  },
 }
 
--- ======================================= Dap Section ==============================================
-lvim.builtin.dap.active = true
 
--- Key Maps
-lvim.builtin.which_key.vmappings["L"] = {
-	name = "Debug",
-	b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-	c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-	i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-	l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-	u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-}
-
--- ===================================== Plugins Section ============================================
-lvim.plugins = {}
