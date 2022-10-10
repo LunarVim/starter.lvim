@@ -120,6 +120,15 @@ lvim.builtin.which_key.mappings["L"] = {
 	o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
 }
 
+lvim.builtin.which_key.mappings["C"] = {
+  name = "Crates",
+  r = { "<cmd>lua require'crates'.open_repository()<cr>", "visit crate's repository" },
+  p = { "<cmd>lua require'crates'.show_popup()<cr>", "show popup" },
+  c = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "crates info" },
+  f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "features info" },
+  d = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "dependencies info" },
+}
+
 lvim.plugins = {
 	"simrat39/rust-tools.nvim",
 	{
