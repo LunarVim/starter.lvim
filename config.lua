@@ -132,6 +132,9 @@ lvim.plugins = {
 					enabled = true,
 					name = "crates.nvim",
 				},
+        popup = {
+          border = "rounded"
+        }
 			}
 		end,
 	},
