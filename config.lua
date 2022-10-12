@@ -78,7 +78,7 @@ gopher.setup {
 ------------------------
 -- Language Key Mappings
 ------------------------
-lvim.builtin.which_key.mappings["L"] = {
+lvim.builtin.which_key.mappings["C"] = {
   name = "Go",
   i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
   t = { "<cmd>GoMod tidy<cr>", "Tidy" },
@@ -88,6 +88,7 @@ lvim.builtin.which_key.mappings["L"] = {
   g = { "<cmd>GoGenerate<Cr>", "Go Generate" },
   f = { "<cmd>GoGenerate %<Cr>", "Go Generate File" },
   c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
+  r = { "<cmd>GoIfErr<Cr>", "Add if err" },
 }
 
 ------------------------
