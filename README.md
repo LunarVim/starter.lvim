@@ -2,6 +2,12 @@
 
 A great starting point for your LunarVim journey!
 
+## Requirements
+omnisharp
+netcoredbg
+
+install with mason :MasonInstall omnisharp netcoredbg
+
 ## Submission Guidelines
 
 - Ideally one file!
