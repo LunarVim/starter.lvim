@@ -104,7 +104,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
 
-lvim.builtin.which_key.mappings["L"] = {
+lvim.builtin.which_key.mappings["C"] = {
 	name = "Rust",
 	r = { "<cmd>RustRunnables<Cr>", "Runnables" },
 	t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
