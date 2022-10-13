@@ -118,15 +118,11 @@ lvim.builtin.which_key.mappings["L"] = {
 		"Reload Workspace",
 	},
 	o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-}
-
-lvim.builtin.which_key.mappings["C"] = {
-  name = "Crates",
-  r = { "<cmd>lua require'crates'.open_repository()<cr>", "visit crate's repository" },
-  p = { "<cmd>lua require'crates'.show_popup()<cr>", "show popup" },
-  c = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "crates info" },
-  f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "features info" },
-  d = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "dependencies info" },
+  y = { "<cmd>lua require'crates'.open_repository()<cr>", "[crates] open repository" },
+  P = { "<cmd>lua require'crates'.show_popup()<cr>", "[crates] show popup" },
+  i = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "[crates] show info" },
+  f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
+  D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
 }
 
 lvim.plugins = {
