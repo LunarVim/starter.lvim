@@ -119,7 +119,7 @@ lvim.plugins = {
 -----------------------------------------------------------------------
 -- custom which-key mappings for commands provided by clangd_extensions
 -----------------------------------------------------------------------
-lvim.builtin.which_key.mappings["L"] = {
+lvim.builtin.which_key.mappings["C"] = {
   name = "Clangd",
   a = { "<cmd>ClangdAST<CR>", "View AST" },
   s = { "<cmd>ClangdSymbolInfo<CR>", "View Symbol info" },
@@ -128,7 +128,7 @@ lvim.builtin.which_key.mappings["L"] = {
   H = { "<cmd>ClangdToggleInlayHints<CR>", "Toggle Inlay Hints" },
 }
 
-lvim.builtin.which_key.vmappings["L"] = {
+lvim.builtin.which_key.vmappings["C"] = {
   name = "Clangd",
   a = { "<cmd>ClangdAST<CR>", "View AST" },
 }
