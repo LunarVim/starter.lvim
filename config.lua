@@ -58,7 +58,7 @@ local function set_keymaps(buffer)
   }
 
   local mappings = {
-    L = {
+    C = {
       name = "Go",
       i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
       t = { "<cmd>GoMod tidy<cr>", "Tidy" },
