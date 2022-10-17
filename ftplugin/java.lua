@@ -197,7 +197,7 @@ config["on_attach"] = function(client, bufnr)
 	local _, _ = pcall(vim.lsp.codelens.refresh)
 	require("jdtls.dap").setup_dap_main_class_configs()
 	jdtls.setup_dap({ hotcodereplace = "auto" })
-	require("lvim.lsp").on_attach(client, bufnr)
+	require("lvim.lsp").common_on_attach(client, bufnr)
 	local map = function(mode, lhs, rhs, desc)
 		if desc then
 			desc = desc
