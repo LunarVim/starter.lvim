@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Mappings
-lvim.builtin.which_key.mappings["L"] = {
+lvim.builtin.which_key.mappings["C"] = {
   name = "LaTeX",
   m = { "<cmd>VimtexContextMenu<CR>", "Open Context Menu" },
   u = { "<cmd>VimtexCountLetters<CR>", "Count Letters" },
