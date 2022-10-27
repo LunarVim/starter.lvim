@@ -150,7 +150,18 @@ linters.setup {
   {
     command = "luacheck",
     filetypes = { "lua" },
-    args = { "--globals", "vim", "--formatter", "plain", "--codes", "--ranges", "--filename", "$FILENAME", "-" },
+    args = {
+      "--globals",
+      "vim",
+      "lvim",
+      "--formatter",
+      "plain",
+      "--codes",
+      "--ranges",
+      "--filename",
+      "$FILENAME",
+      "-",
+    },
   },
 
   { command = "yamllint", filetypes = { "yaml" } },
