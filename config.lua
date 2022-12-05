@@ -120,7 +120,7 @@ lvim.builtin.which_key.mappings["L"] = {
 	o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
 }
 
-lvim.plugins = {
+table.insert(lvim.plugins, {
 	"simrat39/rust-tools.nvim",
 	{
 		"saecki/crates.nvim",
@@ -141,4 +141,4 @@ lvim.plugins = {
 			require("fidget").setup()
 		end,
 	},
-}
+})
