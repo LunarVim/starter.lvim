@@ -1,6 +1,5 @@
 lvim.format_on_save = true
 
-lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.autotag.enable = true
 
 ------------------------------------------------------------------------
@@ -45,9 +44,6 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "gopls", "ru
 ------------------------------------------------------------------------
 
 local lsp_manager = require "lvim.lsp.manager"
-local on_init = require("lvim.lsp").common_on_init
-local on_attach = require("lvim.lsp").common_on_attach
-local capabilities = require("lvim.lsp").common_capabilities()
 
 -- clangd
 local clangd_flags = {
@@ -57,22 +53,16 @@ local clangd_flags = {
   "--clang-tidy",
 }
 
-local clangd_capabilities = vim.deepcopy(capabilities)
+local clangd_capabilities = require("lvim.lsp").common_capabilities()
 clangd_capabilities.offsetEncoding = { "utf-16" }
 
--- clangd
 lsp_manager.setup("clangd", {
   cmd = { "clangd", unpack(clangd_flags) },
-  on_init = on_init,
-  on_attach = on_attach,
   capabilities = clangd_capabilities,
 })
 
 -- rust_analyzer
 lsp_manager.setup("rust_analyzer", {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       checkOnSave = {
@@ -85,9 +75,6 @@ lsp_manager.setup("rust_analyzer", {
 
 -- gopls
 lsp_manager.setup("gopls", {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
   settings = {
     gopls = {
       gofumpt = true,
