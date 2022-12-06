@@ -2,20 +2,22 @@
 
 A great starting point for your LunarVim journey!
 
+starter.lvim is a collection of language specific LunarVim configs. Each config
+is in its git own branch, if you want to contribute see the [guidelines](CONTRIBUTING.md).
+
+## starter.lvim/master
+
+This branch contains a config for a couple common languages
+
 <details open>
   <summary>
     <strong>Contents</strong>
   </summary>
 
-- [Submission Guidelines](#submission-guidelines)
 - [Supported languages](#supported-languages)
 - [Requirements](#requirements)
 - [Keybinds](#additional-keybinds)
 </details>
-
-## Submission Guidelines
-
-See [guidelines](guidelines.md)
 
 ## Supported languages
 
@@ -62,15 +64,15 @@ use the command below to install them with mason
 > **Note**
 > Leader is mapped to <kbd>Space</kbd>
 
-| Mode   | Key                                        | Action                                        |
-| ------ | ------------------------------------------ | --------------------------------------------- |
-| visual | <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>r</kbd> | Refactor selection                            |
-| normal | <kbd>Space</kbd>+<kbd>P</kbd>              | Project menu                                  |
-| normal | <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>o</kbd> | Search and replace (open spectre panel)       |
-| normal | <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>f</kbd> | Search and replace (search current file)      |
-| normal | <kbd>Space</kbd>+<kbd>r</kbd>+<kbd>c</kbd> | Search and replace (search word under cursor) |
-| normal | <kbd>Space</kbd>+<kbd>t</kbd>+<kbd>w</kbc> | Workspace diagnostics                         |
-| normal | <kbd>Space</kbd>+<kbd>t</kbd>+<kbd>d</kbc> | Document diagnostics                          |
-| normal | <kbd>Space</kbd>+<kbd>t</kbd>+<kbd>t</kbc> | LSP Type definitions                          |
-| normal | <kbd>Space</kbd>+<kbd>t</kbd>+<kbd>r</kbc> | LSP references                                |
-| normal | <kbd>Space</kbd>+<kbd>t</kbd>+<kbd>q</kbc> | Quickfix                                      |
+| Mode   | Key                                         | Action                                        |
+| ------ | ------------------------------------------- | --------------------------------------------- |
+| visual | <kbd>Leader</kbd>+<kbd>r</kbd>+<kbd>r</kbd> | Refactor selection                            |
+| normal | <kbd>Leader</kbd>+<kbd>P</kbd>              | Project menu                                  |
+| normal | <kbd>Leader</kbd>+<kbd>r</kbd>+<kbd>o</kbd> | Search and replace (open spectre panel)       |
+| normal | <kbd>Leader</kbd>+<kbd>r</kbd>+<kbd>f</kbd> | Search and replace (search current file)      |
+| normal | <kbd>Leader</kbd>+<kbd>r</kbd>+<kbd>c</kbd> | Search and replace (search word under cursor) |
+| normal | <kbd>Leader</kbd>+<kbd>t</kbd>+<kbd>w</kbc> | Workspace diagnostics                         |
+| normal | <kbd>Leader</kbd>+<kbd>t</kbd>+<kbd>d</kbc> | Document diagnostics                          |
+| normal | <kbd>Leader</kbd>+<kbd>t</kbd>+<kbd>t</kbc> | LSP Type definitions                          |
+| normal | <kbd>Leader</kbd>+<kbd>t</kbd>+<kbd>r</kbc> | LSP references                                |
+| normal | <kbd>Leader</kbd>+<kbd>t</kbd>+<kbd>q</kbc> | Quickfix                                      |
