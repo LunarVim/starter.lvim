@@ -5,9 +5,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "toml",
 }
 
-lvim.builtin.dap.active = true
-lvim.builtin.treesitter.highlight.enable = true
-
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 
 local formatters = require "lvim.lsp.null-ls.formatters"
