@@ -59,15 +59,15 @@ lsp_manager.setup("gopls", {
 
       vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc, buffer = bufnr, noremap = true })
     end
-    map("<leader>Ci", "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies")
-    map("<leader>Ct", "<cmd>GoMod tidy<cr>", "Tidy")
-    map("<leader>Ca", "<cmd>GoTestAdd<Cr>", "Add Test")
-    map("<leader>CA", "<cmd>GoTestsAll<Cr>", "Add All Tests")
-    map("<leader>Ce", "<cmd>GoTestsExp<Cr>", "Add Exported Tests")
-    map("<leader>Cg", "<cmd>GoGenerate<Cr>", "Go Generate")
-    map("<leader>Cf", "<cmd>GoGenerate %<Cr>", "Go Generate File")
-    map("<leader>Cc", "<cmd>GoCmt<Cr>", "Generate Comment")
-    map("<leader>DT", "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test")
+    map("n", "<leader>Ci", "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies")
+    map("n", "<leader>Ct", "<cmd>GoMod tidy<cr>", "Tidy")
+    map("n", "<leader>Ca", "<cmd>GoTestAdd<Cr>", "Add Test")
+    map("n", "<leader>CA", "<cmd>GoTestsAll<Cr>", "Add All Tests")
+    map("n", "<leader>Ce", "<cmd>GoTestsExp<Cr>", "Add Exported Tests")
+    map("n", "<leader>Cg", "<cmd>GoGenerate<Cr>", "Go Generate")
+    map("n", "<leader>Cf", "<cmd>GoGenerate %<Cr>", "Go Generate File")
+    map("n", "<leader>Cc", "<cmd>GoCmt<Cr>", "Generate Comment")
+    map("n", "<leader>DT", "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test")
   end,
   on_init = require("lvim.lsp").common_on_init,
   capabilities = require("lvim.lsp").common_capabilities(),
