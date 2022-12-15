@@ -1,8 +1,4 @@
-# starter.lvim
-
-A great starting point for your LunarVim journey!
-
-## Submission Guidelines
+# Submission Guidelines
 
 - Ideally one file!
 - IDE config must be added to its own branch named `lang-ide`
