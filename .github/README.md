@@ -11,12 +11,12 @@ provided by **LunarVim**.
 
 ## Available configurations
 
-- [C/C++](/../c-ide/config.lua)
-- [Elixir](/../elixir-ide/config.lua)
-- [go](/../go-ide/config.lua)
-- [java](/../java-ide/config.lua)
-- [Latex](/../latex-ide/config.lua)
-- [PHP](/../php-ide/config.lua)
-- [rust](/../rust-ide/config.lua)
-- [python](/../python-ide/config.lua)
-- [scala](/../scala-ide/config.lua)
+- [C/C++](https://github.com/LunarVim/starter.lvim/tree/c-ide)
+- [Elixir](https://github.com/LunarVim/starter.lvim/tree/elixir-ide)
+- [go](https://github.com/LunarVim/starter.lvim/tree/go-ide)
+- [java](https://github.com/LunarVim/starter.lvim/tree/java-ide)
+- [Latex](https://github.com/LunarVim/starter.lvim/tree/latex-ide)
+- [PHP](https://github.com/LunarVim/starter.lvim/tree/php-ide)
+- [rust](https://github.com/LunarVim/starter.lvim/tree/rust-ide)
+- [python](https://github.com/LunarVim/starter.lvim/tree/python-ide)
+- [scala](https://github.com/LunarVim/starter.lvim/tree/scala-ide)
