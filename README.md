@@ -1,4 +1,4 @@
-# starter.lvim
+# JS-TS-REACT IDE (starter.lvim)
 
 A great starting point for your `Javascript`, `Typescript` and `React` LunarVim journey!
 
