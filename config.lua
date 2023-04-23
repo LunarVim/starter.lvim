@@ -11,7 +11,6 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
-lvim.builtin.dap.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -29,7 +28,6 @@ formatters.setup {
 -- Additional Plugins
 lvim.plugins = {
   "mfussenegger/nvim-jdtls",
-  "rcarriga/nvim-dap-ui"
 }
 
 require("user.dap-ui")
