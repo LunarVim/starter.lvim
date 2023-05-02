@@ -15,26 +15,3 @@ development. Here's what it comes with:
 2. Formatting.
 3. Linting.
 4. Amazing, common sense keymappings.
-5. The ability to run chunks of code like Jupiter-Notebook.
-
-## Requirements
-
-You must have the following installed and already setup for things to work
-smoothly:
-
-1. `Python3.8+` All the required python libraries:
-  - `jupyterlab`.
-  - `pynvim`.
-  - `jupyter_client`.
-  - `ueberzug` or you can use `kitty`.
-  - `Pillow`.
-  - `cairosvg`.
-  - `pnglatex`.
-  - `plotly`.
-  - `kaleido`.
-2. `Pylsp` or `Pyright` for LSP.
-3. `Black` for formatting.
-4. `Flake8` for linting.
-
-You can install everything with the following command: `pip3 install -r
-requirements.txt`.
