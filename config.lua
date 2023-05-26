@@ -11,6 +11,11 @@ lvim.builtin.treesitter.ensure_installed = {
 ------------------------
 lvim.plugins = {
   "olexsmir/gopher.nvim",
+  requires = { -- dependencies
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+
   "leoluz/nvim-dap-go",
 }
 
