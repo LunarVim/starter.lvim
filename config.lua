@@ -26,7 +26,11 @@ linters.setup { { command = "flake8", filetypes = { "python" } } }
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
-  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  -- Without this check each time neovim loads this file the configurations for dap-python will
+  -- be inserted again which will start duplicating entries.
+  if not package.loaded['dap-python'] then
+    require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  end
 end)
 
 -- setup testing
