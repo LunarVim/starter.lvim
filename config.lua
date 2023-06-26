@@ -12,11 +12,11 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.lsp.installer.setup.ensure_installed = {
-  "sumeko_lua",
-  "css-lsp",
-  "typescript-language-server",
-  "tailwindcss-language-server",
-  "elixir-ls"
+  "lua_ls",
+  "cssls",
+  "tsserver",
+  "tailwindcss",
+  "elixirls"
 }
 
 -- Additional Plugins
