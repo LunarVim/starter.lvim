@@ -7,11 +7,6 @@ lvim.builtin.treesitter.ensure_installed = {
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  { command = "stylua", filetypes = { "lua" } },
-}
-
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 
 local codelldb_path = mason_path .. "bin/codelldb"
