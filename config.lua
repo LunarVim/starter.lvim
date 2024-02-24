@@ -1,6 +1,5 @@
 lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
-
+vim.diagnostic.config({virtual_text = true})
 lvim.builtin.treesitter.highlight.enable = true
 
 -- Auto install treesitter parsers.
@@ -39,6 +38,8 @@ vim.cmd([[
 
 -- Vimtex configuration.
 vim.g.vimtex_view_method = "zathura"
+-- Enable inverse search (set progpath to location of lvim executable)
+vim.g.vimtex_callback_progpath =  vim.fn.expand('$HOME/.local/bin/lvim')
 vim.g.vimtex_quickfix_enabled = 0
 
 -- Setup cmp.
