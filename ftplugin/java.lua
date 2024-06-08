@@ -10,10 +10,10 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = workspace_path .. project_name
 
 -- Determine OS
-local os_config = "linux"
-if vim.fn.has "mac" == 1 then
-  os_config = "mac"
-end
+-- you'll find the values in ~/.local/share/lvim/mason/packages/jdtls/config_* directory
+-- where Macbooks with M series chip need to have the mac_arm value so the config_mac_arm directory will be used
+-- if this value set up incorrectly you won't have debug and test execution
+local os_config = "mac_arm"
 
 -- Setup Capabilities
 local capabilities = require("lvim.lsp").common_capabilities()
@@ -47,11 +47,11 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-    "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+    "-javaagent:" .. home .. "/.local/share/lvim/mason/packages/jdtls/lombok.jar",
     "-jar",
-    vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+    vim.fn.glob(home .. "/.local/share/lvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
     "-configuration",
-    home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. os_config,
+    home .. "/.local/share/lvim/mason/packages/jdtls/config_" .. os_config,
     "-data",
     workspace_dir,
   },
@@ -65,14 +65,18 @@ local config = {
       },
       configuration = {
         updateBuildConfiguration = "interactive",
+        -- you need to set the JDKs for yourself according to your JDK manager
+        -- the name part is important, the values can be found here: https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+        -- look for enum ExecutionEnvironment for the name values
+        -- the config values for path below represent a MacOS where java is managed by jenv 
         runtimes = {
           {
-            name = "JavaSE-11",
-            path = "~/.sdkman/candidates/java/11.0.17-tem",
+            name = "JavaSE-17",
+            path = "~/.jenv/versions/zulu64-17.0.11/",
           },
           {
-            name = "JavaSE-18",
-            path = "~/.sdkman/candidates/java/18.0.2-sem",
+            name = "JavaSE-21",
+            path = "~/.jenv/versions/zulu64-21.0.3/",
           },
         },
       },
@@ -108,7 +112,7 @@ local config = {
 config["on_attach"] = function(client, bufnr)
   local _, _ = pcall(vim.lsp.codelens.refresh)
 	require("jdtls").setup_dap({ hotcodereplace = "auto" })
-	require("lvim.lsp").on_attach(client, bufnr)
+	require("lvim.lsp").common_on_attach(client, bufnr)
   local status_ok, jdtls_dap = pcall(require, "jdtls.dap")
   if status_ok then
     jdtls_dap.setup_dap_main_class_configs()
