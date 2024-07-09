@@ -32,6 +32,14 @@ lvim.plugins = {
     'mrcjkb/rustaceanvim',
     version = '^4',
     lazy = false,
+    ft = { "rust" },
+    config = function()
+    vim.g.rustaceanvim = {
+      server = {
+        on_attach = require("lvim.lsp").common_on_attach
+      },
+    }
+  end,
   },
   {
     "saecki/crates.nvim",
