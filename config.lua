@@ -1,5 +1,5 @@
 lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
+vim.diagnostic.config = true
 
 lvim.builtin.treesitter.highlight.enable = true
 
